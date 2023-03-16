@@ -9,20 +9,21 @@ public class Assignment3 {
 		 Scanner scanner = new Scanner(System.in);
 	        System.out.print("Enter a big word: ");
 	        String word = scanner.nextLine();
-
+		
 	        // Count unique characters
-	        int count = 0;
-	        boolean[] array = new boolean[200];
-	        for (int i = 0; i < word.length(); i++) {
-	            char c = word.charAt(i);
-	            if (!array[c]) {
-	                array[c] = true;
-	                count++;
-	            }
-	        }
-	        System.out.println("Number of unique characters: " + count);
+	       int[] charCount = new int[200];
+		for (int i = 0; i < word.length(); i++) {
+	           charCount[word.charAt(i)]++;
+		}
 
-	        // Print number of occurrences of each character
+		int uniqueCharacters = 0;
+		for (int i = 0; i < charCount.length; i++) {
+		     if (charCount[i] > 0) {
+		        uniqueCharacters++;
+			}
+		}
+		System.out.println("The word has " + uniqueCharacters + " unique characters.");
+		// Print number of occurrences of each character
 	        int[] occurrences = new int[200];
 	        for (int i = 0; i < word.length(); i++) {
 	            char c = word.charAt(i);
